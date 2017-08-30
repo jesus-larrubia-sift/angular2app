@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
 import {
   ApiService,
+  AuthGuard,
   FooterComponent,
   HeaderComponent,
   JwtService,
@@ -33,6 +34,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ApiService,
     JwtService,
     UserService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
