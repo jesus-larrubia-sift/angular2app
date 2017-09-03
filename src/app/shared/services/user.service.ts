@@ -13,7 +13,7 @@ import {User} from '../models';
 
 @Injectable()
 export class UserService {
-    // The private variables currentUserSubject and isAuthenticatedSubject are convereted to a
+    // The private variables currentUserSubject and isAuthenticatedSubject are converted to a
     // public Observable for use throughout the app. Converting the Subject to an Observable
     // prevents any changes from being made to the User.
     private currentUserSubject = new BehaviorSubject<User>(new User());
@@ -76,6 +76,16 @@ export class UserService {
 
     getCurrentUser():User {
         return this.currentUserSubject.value;
+    }
+
+    // Update the user on the server (email, pass, etc)
+    update(user): Observable<User> {
+        return this.apiService.put('/user', { user })
+            .map(data => {
+                // Update the currentUser observable
+                this.currentUserSubject.next(data.user);
+                return data.user;
+            });
     }
 
 }

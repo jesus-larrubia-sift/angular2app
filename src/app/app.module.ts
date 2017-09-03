@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
+import { SettingsModule } from './settings/settings.module';
+import {} from '';
 import {
   ApiService,
   AuthGuard,
@@ -23,11 +25,14 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     FooterComponent,
     HeaderComponent,
   ],
+  // Importing BrowserModule made all of its public components, directives, and pipes visible to the component
+  // templates in AppModule.
   imports: [
     BrowserModule,
     AuthModule,
     SharedModule,
     HomeModule,
+    SettingsModule,
     rootRouting,
   ],
   providers: [
