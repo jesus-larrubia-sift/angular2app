@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ListErrorsComponent } from './errors/list-errors.component';
+import { FollowButtonComponent } from './buttons/follow-button.component';
 import { ShowAuthedDirective } from './show-authed.directive';
 
 @NgModule({
@@ -12,11 +13,12 @@ import { ShowAuthedDirective } from './show-authed.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule
+    RouterModule,
   ],
   declarations: [
     ListErrorsComponent,
     ShowAuthedDirective,
+    FollowButtonComponent,
    ],
   exports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpModule,
     ListErrorsComponent,
     RouterModule,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    FollowButtonComponent,
   ]
 })
 export class SharedModule {}

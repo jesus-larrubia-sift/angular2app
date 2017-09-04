@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
 import { SettingsModule } from './settings/settings.module';
-import {} from '';
+import { ProfileModule } from './profile/profile.module';
+import { EditorModule } from './editor/editor.module';
 import {
   ApiService,
   AuthGuard,
@@ -15,6 +16,7 @@ import {
   JwtService,
   SharedModule,
   UserService,
+  ArticlesService,
 } from './shared';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
@@ -25,8 +27,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     FooterComponent,
     HeaderComponent,
   ],
-  // Importing BrowserModule made all of its public components, directives, and pipes visible to the component
-  // templates in AppModule.
+  // Importing BrowserModule made all of its public components,directives,
+  // and pipes visible to the component templates in AppModule.
   imports: [
     BrowserModule,
     AuthModule,
@@ -34,12 +36,16 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     HomeModule,
     SettingsModule,
     rootRouting,
+    ProfileModule,
+    EditorModule,
   ],
+  // Services used.
   providers: [
     ApiService,
     JwtService,
     UserService,
     AuthGuard,
+    ArticlesService,
   ],
   bootstrap: [AppComponent]
 })

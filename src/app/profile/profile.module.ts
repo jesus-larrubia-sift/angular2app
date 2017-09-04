@@ -1,6 +1,6 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {SharedModule, AuthGuard} from '../shared';
+import {SharedModule, ProfilesService} from '../shared';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileResolver } from './profile-resolver.service';
@@ -24,7 +24,8 @@ const profileRouting:ModuleWithProviders = RouterModule.forChild([
         ProfileComponent
     ],
     providers: [
-        ProfileResolver
+        ProfileResolver,
+        ProfilesService,
     ]
 })
 export class ProfileModule {
